@@ -18,8 +18,8 @@ public:
 		cout << endl;
 
 		// Cek apakah antrian penuh
-		if ((FRONT == 0 && REAR == max - 1) || (FRONT == REAR = + 1)) {
-			cout << "\nQueues overflow\n";
+		if ((FRONT == 0 && REAR == max - 1) || (FRONT == REAR + 1)){
+			cout << "\nQueue overflow\n";
 			return;
 		}
 		// cek apakah antrian kosong
@@ -44,5 +44,18 @@ public:
 			return;
 		}
 		cout << "\nThe element deleted from the queue is: " << queue_array[FRONT] << "\n";
+
+		// cek jika antrian hanya memiliki satu element
+		if (FRONT == REAR) {
+			FRONT = -1;
+			REAR = -1;
+		}
+		else {
+			// jika element yang di hapus berada di posisi terakhir array, kembali ke awal array
+			if (FRONT == max - 1)
+				FRONT = 0;
+			else
+				FRONT = FRONT + 1;
+		}
 	}
-};
+
